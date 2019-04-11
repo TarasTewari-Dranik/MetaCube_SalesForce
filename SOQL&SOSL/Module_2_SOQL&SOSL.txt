@@ -1,0 +1,15 @@
+SELECT Name,DOB__c,Sex__c FROM Student__c WHERE Name LIKE 'S%'
+SELECT ID FROM Student__c WHERE Class__r.Name LIKE 'X%'
+SELECT ID,Class__r.Name FROM Student__c
+SELECT Id,(SELECT Id FROM Students__r) FROM Class__c
+SELECT (SELECT Id FROM Students__r) FROM Class__c WHERE ClassTeacher__r.LastName LIKE 'S%'
+SELECT Id FROM Student__c WHERE CALENDAR_YEAR(DOB__C) > 2000
+SELECT Id,Name FROM Lead WHERE LastModifiedDate = THIS_MONTH
+SELECT Id,(SELECT Id, Name FROM Students__r WHERE Name LIKE ’S%’ ) FROM Class__c WHERE Id IN (SELECT Class__c FROM Student__c WHERE Name LIKE ’S%’)
+SELECT Id FROM Contact WHERE Id IN (SELECT Teacher__c FROM Teach__c WHERE Subject__c = 'English') AND Id IN (SELECT Teacher__c FROM Teach__c WHERE Subject__c = 'Hindi')
+SELECT Id FROM Student__c WHERE Class__c IN (SELECT Class__c FROM Teach__c WHERE Subject__c IN ('Maths','Hindi'))
+SELECT Name,NumberOfStudents__c FROM Class__c
+SELECT COUNT(Id),CALENDAR_MONTH(DOB__c) FROM Student__c GROUP BY CALENDAR_MONTH(DOB__c)
+
+FIND {"Joe"} IN ALL Fields Returning Contact (Id, LastName), Student__c (Id, Name)
+FIND {“Joe”} IN ALL FIELDS RETURNING Student__c(Id, Name USING ListView = Male_Students)
