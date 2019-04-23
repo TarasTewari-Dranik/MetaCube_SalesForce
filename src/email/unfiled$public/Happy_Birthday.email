@@ -1,0 +1,7 @@
+Dear {!Contact.Name},
+
+We fish all the best.
+
+Best regards,
+{!Contact.OwnerFullName}
+CloudTeam
