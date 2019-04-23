@@ -1,0 +1,2 @@
+Dear {!Loan__c.OwnerFullName},
+Your loan {!Loan__c.Name} is approved by Manager {!Loan__c.Manager__c}. To see your loan click link https://eu19.lightning.force.com/lightning/r/Loan__c/{!Loan__c.Id}/view

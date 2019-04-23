@@ -1,0 +1,2 @@
+Dear {!Loan__c.OwnerFullName},
+Your loan {!Loan__c.Name} is rejected by Manager {!Loan__c.Manager__c}. See your loan https://eu19.lightning.force.com/lightning/r/Loan__c/{!Loan__c.Id}/view
