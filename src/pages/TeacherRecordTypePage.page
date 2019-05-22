@@ -1,0 +1,14 @@
+<apex:page standardController="Contact" standardStylesheets="false">
+   <style type="text/css">
+        p {
+            color: #FFF;
+            font-size:40px;
+            margin: auto;
+            text-align: center;
+            background-color: #800080;
+            width: auto;
+            height:50px;
+        }
+    </style>
+    <p><apex:outputField value="{!Contact.RecordTypeId}" label=""/></p>
+</apex:page>

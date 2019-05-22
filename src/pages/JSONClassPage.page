@@ -1,0 +1,3 @@
+<apex:page standardController="Class__c" extensions="JSONGenerator" contentType="application/json; charset=utf-8" showHeader="false" standardStylesheets="false" sidebar="false">
+	<apex:outputText value="{!jsonData}" rendered="true"/>
+</apex:page>

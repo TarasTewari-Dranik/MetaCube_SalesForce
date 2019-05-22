@@ -1,0 +1,46 @@
+<apex:page standardController="Class__c" extensions="TableEditAndDelete" recordSetVar="classes__c" lightningStylesheets="true">
+    <apex:form id="allpage">
+        <apex:pageBlock >
+        	<apex:pageBlockTable value="{!classes__c}" var="cl" id="form">
+            	<apex:column >
+            		<apex:outputLink >
+                		<apex:outputText value="Edit"/>
+            			<apex:actionSupport event="onclick"
+                 		               		action="{!editClass}"
+                                		reRender="edit">
+                    		<apex:param name="classid" value="{!cl.Id}" assignTo="{!SelectedClassId}"/>
+                		</apex:actionSupport>
+             		</apex:outputLink>&nbsp;|&nbsp;
+            		<apex:outputLink >
+                		<apex:outputText value="Delete"/>
+            			<apex:actionSupport event="onclick"
+                 	          	     		action="{!deleteClass}"
+                        	        		reRender="allpage:form">
+                    		<apex:param name="classid" value="{!cl.Id}" assignTo="{!SelectedClassId}"/>
+                		</apex:actionSupport>
+             		</apex:outputLink>
+            	</apex:column>
+            	<apex:column value="{!cl.Name}"/>
+            	<apex:column value="{!cl.Board__c}"/>
+            	<apex:column value="{!cl.ClassTeacher__c}"/>
+            	<apex:column value="{!cl.Custom_Status__c}"/>
+            	<apex:column value="{!cl.Fee__c}"/>s
+            	<apex:column value="{!cl.MaxSize__c}"/>
+            	<apex:column value="{!cl.NumberOfStudents__c}"/>
+        	</apex:pageBlockTable>
+    	</apex:pageBlock>
+    	<apex:pageBlock rendered="{!NOT(ISNULL(editRecord))}" id="edit" mode="edit">
+        	<apex:pageBlockSection columns="1">
+           		<apex:inputField value="{!editRecord.Name }"/>
+                <apex:inputField value="{!editRecord.ClassTeacher__c }"/>
+                <apex:inputField value="{!editRecord.Fee__c }"/> 
+                <apex:inputField value="{!editRecord.MaxSize__c }"/>
+                <apex:inputField value="{!editRecord.Board__c }"/>
+                <apex:inputField value="{!editRecord.Custom_Status__c }"/>
+        	</apex:pageBlockSection>
+        	<apex:pageBlockButtons >
+            	<apex:commandButton action="{! save }" value="Save" reRender="allpage"/>        
+        	</apex:pageBlockButtons>
+    	</apex:pageBlock>
+    </apex:form>
+</apex:page>
