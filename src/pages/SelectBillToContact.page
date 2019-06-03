@@ -1,0 +1,11 @@
+<apex:page controller="SelectBillToContactController" lightningStylesheets="true">
+    <apex:form >
+        <apex:selectRadio value="{!billContact}">
+            <apex:selectOptions value="{!items}"/>
+        </apex:selectRadio><p/>
+        <apex:commandButton value="Save" action="{!save}"/>
+        <apex:commandButton value="Cancel" action="{!save}"/>
+        <apex:commandButton value="Clear" action="{!clear}"/>
+     </apex:form>
+
+</apex:page>
